@@ -1,0 +1,8 @@
+div.plant-calculator {
+    overflow: hidden;
+}
+
+.plant-calculator input {
+    float: right;
+    clear: both;
+}

@@ -13,12 +13,21 @@
 
 add_shortcode('ppfd-calculator', 'ppfd_calc_shortcode');
 add_shortcode('dli-calculator', 'dli_calc_shortcode');
+
+if (!function_exists('ppfd_calc_add_style')) {
+    function ppfd_calc_add_style()
+    {
+        $plugin_url = plugin_dir_url(__FILE__);
+        wp_enqueue_style('plant-calculator-style',  $plugin_url . "css/plant-calculator-style.css");
+    }
+}
+
 if (!function_exists('ppfd_calc_shortcode')) {
     function ppfd_calc_shortcode($atts = [], $content = null)
     {
-        $uniqueID = $uniqid = uniqid("plant-calcualtor-ppfd-");
+        ppfd_calc_add_style();
 
-        wp_enqueue_style('plant-calculator-style', plugins_url('plant-calculator/css/plant-calculator-style.css'));
+        $uniqueID = $uniqid = uniqid("plant-calcualtor-ppfd-");
 
         $output = '<div id="' . $uniqueID . '" class="plant-calculator">
                     <div>
@@ -30,7 +39,7 @@ if (!function_exists('ppfd_calc_shortcode')) {
                         <input type="number" name="measure-point-amount" id="measure-point-amount">
                     </div>
                     <div>
-                        Resultat: <span id="measure-point-result"></span>
+                        Medel PPFD: <span id="measure-point-result"></span>
                     </div>
                     <div>
                         <button id="measure-point-calculate">Beräkna</button>
@@ -62,9 +71,9 @@ if (!function_exists('ppfd_calc_shortcode')) {
 if (!function_exists('dli_calc_shortcode')) {
     function dli_calc_shortcode($atts = [], $content = null)
     {
-        $uniqueID = $uniqid = uniqid("plant-calcualtor-dli-");
+        ppfd_calc_add_style();
 
-        wp_enqueue_style('plant-calculator-style', plugins_url('plant-calculator/css/plant-calculator-style.css'));
+        $uniqueID = $uniqid = uniqid("plant-calcualtor-dli-");
 
         $output = '<div id="' . $uniqueID . '" class="plant-calculator">
                     <div>
@@ -76,7 +85,7 @@ if (!function_exists('dli_calc_shortcode')) {
                         <input type="number" name="dli-time-value">
                     </div>
                     <div>
-                        Resultat: <span id="dli-result"></span>
+                        DLI: <span id="dli-result"></span>
                     </div>
                     <div>
                         <button id="dli-calculate">Beräkna</button>

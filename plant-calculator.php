@@ -39,7 +39,7 @@ if (!function_exists('ppfd_calc_shortcode')) {
                         <input type="number" name="measure-point-amount" id="measure-point-amount">
                     </div>
                     <div>
-                        Medel PPFD: <span id="measure-point-result"></span>
+                        <p>Medel PPFD: <span id="measure-point-result"></span></p>
                     </div>
                     <div>
                         <button id="measure-point-calculate">Beräkna</button>
@@ -85,7 +85,7 @@ if (!function_exists('dli_calc_shortcode')) {
                         <input type="number" name="dli-time-value">
                     </div>
                     <div>
-                        DLI: <span id="dli-result"></span>
+                        <p>DLI: <span id="dli-result"></span></p>
                     </div>
                     <div>
                         <button id="dli-calculate">Beräkna</button>
